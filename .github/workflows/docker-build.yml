@@ -3,6 +3,9 @@ name: Build and Push Docker Image
 on:
   push:
     branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+  workflow_dispatch:  
 
 jobs:
   build:
@@ -23,5 +26,4 @@ jobs:
       with:
         context: .
         push: true
-        tags: ${{ secrets.DOCKER_USERNAME }}/max-number-app:latest 
-
+        tags: ${{ secrets.DOCKER_USERNAME }}/max-number-app:latest
